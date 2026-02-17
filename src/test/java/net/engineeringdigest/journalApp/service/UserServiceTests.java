@@ -9,10 +9,12 @@ import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@Transactional
 public class UserServiceTests {
 
     @Autowired
@@ -23,7 +25,7 @@ public class UserServiceTests {
 
     @ParameterizedTest
     @ArgumentsSource(UserArgumentsProvider.class)
-    public  void  testSaveNewUser(User user){
+    public void testSaveNewUser(User user){
         assertTrue(userService.saveNewUser(user));
     }
 
