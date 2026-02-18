@@ -11,3 +11,4 @@ class JournalAppApplicationTests {
 	}
 
 }
+// Error : Query failed with error code 20 with name 'IllegalOperation' and error message 'Transaction numbers are only allowed on a replica set member or mongos' o

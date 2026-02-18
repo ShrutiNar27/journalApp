@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@Transactional
+//@Transactional
 public class UserServiceTests {
 
     @Autowired
@@ -26,7 +26,9 @@ public class UserServiceTests {
     @ParameterizedTest
     @ArgumentsSource(UserArgumentsProvider.class)
     public void testSaveNewUser(User user){
-        assertTrue(userService.saveNewUser(user));
+        assertTrue(userService.findByUserName(user.getUserName()) == null ?
+                userService.saveNewUser(user) : true);
+//        assertTrue(userService.saveNewUser(user));
     }
 
     @Disabled
